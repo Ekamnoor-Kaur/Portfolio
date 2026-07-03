@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Professional Portfolio</title>
+    <style>
+        /* ==========================================================================
+           1. CORE DESIGN VARIABLES & RESET
+           ========================================================================== */
+        :root {
+            /* High-vibrancy multi-stop dark mode gradient background */
+            --bg-gradient: linear-gradient(145deg, #020617 0%, #0f172a 45%, #1e1b4b 75%, #2e1065 100%);
+            --card-bg: rgba(255, 255, 255, 0.02);
+            --card-border: rgba(255, 255, 255, 0.06);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent-cyan: #38bdf8;
+            --accent-purple: #c084fc;
+            --text-gradient: linear-gradient(90deg, #38bdf8 0%, #c084fc 100%);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: var(--bg-gradient);
+            background-attachment: fixed; /* Freezes gradient tracking as you scroll */
+            color: var(--text-primary);
+            min-height: 100vh;
+            line-height: 1.6;
+            padding: 0 1rem 4rem 1rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* ==========================================================================
+           2. FIXED NAVIGATION BAR
+           ========================================================================== */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(2, 6, 23, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--card-border);
+            padding: 1.2rem 0;
+            margin-bottom: 2rem;
+        }
+
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-weight: bold;
+            font-size: 1.2rem;
+            background: var(--text-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-cyan);
+        }
+
+        /* ==========================================================================
+           3. GLASSMORPHISM CONTAINER STRUCTURE
+           ========================================================================== */
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            color: var(--text-primary);
+            border-bottom: 1px solid var(--card-border);
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        p { 
+            color: var(--text-secondary); 
+            margin-bottom: 1rem; 
+        }
+
+        .gradient-text {
+            background: var(--text-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        /* ==========================================================================
+           4. HERO SECTION WITH IMAGE PROFILE
+           ========================================================================== */
+        .hero-layout {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .hero-text {
+            flex: 2;
+        }
+
+        .profile-img-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .profile-img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid rgba(192, 132, 252, 0.4);
+            box-shadow: 0 0 30px rgba(192, 132, 252, 0.25);
+        }
+
+        /* ==========================================================================
+           5. INTERACTIVE CTA BUTTONS
+           ========================================================================== */
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-right: 1rem;
+            transition: 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary { 
+            background: linear-gradient(90deg, #38bdf8 0%, #a855f7 100%); 
+            color: #020617; 
+            border: none; 
+        }
+
+        .btn-primary:hover { 
+            box-shadow: 0 0 20px rgba(168, 85, 247, 0.5);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary { 
+            border: 1px solid var(--text-secondary); 
+            color: var(--text-primary); 
+            background: transparent; 
+        }
+
+        .btn-secondary:hover { 
+            background: rgba(255, 255, 255, 0.05); 
+            border-color: var(--text-primary); 
+        }
+
+        /* ==========================================================================
+           6. EDUCATION & CERTIFICATION LAYOUTS
+           ========================================================================== */
+        .item-group { 
+            margin-bottom: 1.5rem; 
+        }
+        
+        .item-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .item-title { 
+            font-size: 1.2rem; 
+            font-weight: 600; 
+            color: var(--accent-cyan); 
+        }
+
+        .item-subtitle { 
+            font-size: 1rem; 
+            color: var(--text-primary); 
+            font-style: italic; 
+        }
+
+        .item-details { 
+            font-size: 0.95rem; 
+            color: var(--text-secondary); 
+            margin-top: 0.25rem; 
+        }
+
+        /* ==========================================================================
+           7. HORIZONTAL CATEGORIZED PROJECTS GRID
+           ========================================================================== */
+        .category-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .project-category {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .category-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1.25rem;
+            border-bottom: 1px solid var(--card-border);
+            padding-bottom: 0.5rem;
+        }
+
+        /* Horizontal project alignment layout setup */
+        .project-grid-horizontal {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Forms two perfect horizontal columns */
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.01);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Links anchor neatly to base line */
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(192, 132, 252, 0.3);
+        }
+
+        /* Custom Project Tags Layout */
+        .tags { 
+            display: flex; 
+            gap: 0.5rem; 
+            margin: 0.75rem 0; 
+            flex-wrap: wrap; 
+        }
+
+        .tag { 
+            padding: 0.25rem 0.6rem; 
+            border-radius: 4px; 
+            font-size: 0.75rem; 
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        /* Dedicated Custom Color Schemes Per Stack Badge */
+        .tag-html { background: rgba(227, 79, 38, 0.12); color: #e34f26; border: 1px solid rgba(227, 79, 38, 0.2); }
+        .tag-css { background: rgba(21, 114, 182, 0.12); color: #38bdf8; border: 1px solid rgba(21, 114, 182, 0.2); }
+        .tag-js { background: rgba(247, 223, 30, 0.1); color: #f59e0b; border: 1px solid rgba(247, 223, 30, 0.2); }
+        .tag-api { background: rgba(6, 182, 212, 0.12); color: #22d3ee; border: 1px solid rgba(6, 182, 212, 0.2); }
+        .tag-storage { background: rgba(168, 85, 247, 0.12); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.2); }
+
+        .proj-links-container { 
+            display: flex; 
+            gap: 1rem; 
+            margin-top: 1rem;
+        }
+
+        .proj-link { 
+            color: var(--accent-cyan); 
+            text-decoration: none; 
+            font-size: 0.9rem; 
+            font-weight: bold; 
+        }
+
+        .proj-link:hover { 
+            text-decoration: underline; 
+        }
+
+        /* ==========================================================================
+           8. FOOTER & MEDIA QUERY LAYOUT OPTIMIZATIONS
+           ========================================================================== */
+        footer { 
+            text-align: center; 
+            margin-top: 5rem; 
+            color: var(--text-secondary); 
+            font-size: 0.9rem; 
+            border-top: 1px solid var(--card-border); 
+            padding-top: 2rem; 
+        }
+
+        @media (max-width: 768px) {
+            .project-grid-horizontal {
+                grid-template-columns: 1fr; /* Stacks cards in single line for tablet spaces */
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero-layout { 
+                flex-direction: column-reverse; 
+                text-align: center; 
+            }
+            .btn { 
+                margin: 0.5rem; 
+            }
+            .nav-links { 
+                display: none; 
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-container">
+        <div class="nav-logo">MyPortfolio.dev</div>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#education">Education</a>
+            <a href="#projects">Projects</a>
+            <a href="#certifications">Certifications</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+
+    <header class="card" id="home">
+        <div class="hero-layout">
+            <div class="hero-text">
+                <h1>👋 Hi, I'm <span class="gradient-text">Ekamnoor Kaur</span></h1>
+                <p>A passionate Developer dedicated to crafting sleek, performant, and user-centric web applications. Currently building projects with modern JavaScript frameworks and cloud architecture.</p>
+                <div style="margin-top: 1.5rem;">
+                    <a href="#projects" class="btn btn-primary">View Projects</a>
+                    <a href="resume.pdf" download="resume.pdf" class="btn btn-secondary" id="downloadBtn">Download CV</a>
+                </div>
+            </div>
+            <div class="profile-img-container">
+                <img src="profile image.jpeg" alt="Profile Image" class="profile-img">
+            </div>
+        </div>
+    </header>
+
+    <section class="card" id="education">
+        <h2>🎓 <span class="gradient-text">Education & Qualifications</span></h2>
+        <div class="item-group">
+            <div class="item-title">Bachelor of Computer Science and Engineering</div>
+            <div class="item-subtitle">CGC University, Mohali | 2024 - 2028</div>
+            <div class="item-details">Focused on Software Architecture, Advanced Databases, and Cloud Computing.</div>
+        </div>
+    </section>
+
+    <section class="card" id="projects">
+        <h2>🛠️ <span class="gradient-text">Featured Projects</span></h2>
+        
+        <div class="category-container">
+            
+            <div class="project-category">
+                <h3 class="category-title">🎨 Frontend Projects</h3>
+                <div class="project-grid-horizontal">
+                    
+                    <div class="project-card">
+                        <div class="item-title">Netflix Clone</div>
+                        <div class="tags">
+                            <span class="tag tag-html">HTML</span>
+                            <span class="tag tag-css">CSS</span>
+                        </div>
+                        <p style="font-size: 0.9rem;">A pixel-perfect UI replica of the Netflix landing page, focusing on responsive layout dynamics and modern styling hooks.</p>
+                        <div class="proj-links-container">
+                            <a href="https://github.com/Ekamnoor-Kaur/Frontend-Projects/tree/main/netflix%20clone%202" target="_blank" class="proj-link">GitHub Code 🛠️</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="item-title">Spotify Clone</div>
+                        <div class="tags">
+                            <span class="tag tag-html">HTML</span>
+                            <span class="tag tag-css">CSS</span>
+                            <span class="tag tag-js">JavaScript</span>
+                        </div>
+                        <p style="font-size: 0.9rem;">A responsive music streaming web player UI with interactive sidebar navigation and dynamic media playback elements.</p>
+                        <div class="proj-links-container">
+                            <a href="https://github.com/Ekamnoor-Kaur/Frontend-Projects/tree/main/Project-spotify%20clone" target="_blank" class="proj-link">GitHub Code 🛠️</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="project-category">
+                <h3 class="category-title">🚀 Client-Side JS Apps</h3>
+                <div class="project-grid-horizontal">
+                    
+                    <div class="project-card">
+                        <div class="item-title">Language Translator</div>
+                        <div class="tags">
+                            <span class="tag tag-js">JavaScript</span>
+                            <span class="tag tag-api">API Integration</span>
+                        </div>
+                        <p style="font-size: 0.9rem;">A client-side utility that translates text dynamically in the browser utilizing public translation APIs without a server backend.</p>
+                        <div class="proj-links-container">
+                            <a href="https://github.com/Ekamnoor-Kaur/client-side-apps/tree/main/Sentence%20Translator" target="_blank" class="proj-link">GitHub Code 🛠️</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="item-title">Login System (Local Storage)</div>
+                        <div class="tags">
+                            <span class="tag tag-js">JavaScript</span>
+                            <span class="tag tag-storage">Local Storage</span>
+                        </div>
+                        <p style="font-size: 0.9rem;">A fully client-side authentication engine that securely stores, validates, and manages user state using Web Storage APIs.</p>
+                        <div class="proj-links-container">
+                            <a href="https://github.com/Ekamnoor-Kaur/client-side-apps/tree/main/Login%20System" target="_blank" class="proj-link">GitHub Code 🛠️</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="card" id="certifications">
+        <h2>🏅 <span class="gradient-text">Certifications & Credentials</span></h2>
+        <div class="item-group">
+            <div class="item-title">Programming Fundamentals using Python</div>
+            <div class="item-subtitle">Issued by Infosys Springboard</div>
+        </div>
+        <div class="item-group">
+            <div class="item-title">Java Programming Fundamentals</div>
+            <div class="item-subtitle">Issued by Infosys Springboard</div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Connect with me on <a href="https://github.com/Ekamnoor-Kaur" target="_blank" style="color: var(--accent-cyan);">GitHub</a> or <a href="https://www.linkedin.com/in/ekamnoor-kaur-57511537a" target="_blank" style="color: var(--accent-cyan);">LinkedIn</a></p>
+        <p style="margin-top: 0.5rem; font-size: 0.8rem;">&copy; 2026 Ekamnoor Kaur. Powered by GitHub Pages.</p>
+    </footer>
+
+</div>
+
+<script>
+    document.getElementById('downloadBtn').addEventListener('click', function(e) {
+        const fileUrl = this.getAttribute('href');
+        if(fileUrl === 'resume.pdf' || fileUrl === '#') {
+            console.log('Ensure your actual resume file is named "resume.pdf" and placed in the same directory path.');
+        }
+    });
+</script>
+
+</body>
+</html>

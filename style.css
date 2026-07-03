@@ -1,259 +1,336 @@
-:root {
-    /* Upgraded: High-vibrancy multi-stop dark mode gradient */
-    --bg-gradient: linear-gradient(145deg, #020617 0%, #0f172a 45%, #1e1b4b 75%, #2e1065 100%);
-    --card-bg: rgba(255, 255, 255, 0.02);
-    --card-border: rgba(255, 255, 255, 0.06);
-    --text-primary: #f8fafc;
-    --text-secondary: #94a3b8;
-    --accent-cyan: #38bdf8;
-    --accent-purple: #c084fc;
-    /* Text Gradient variable mix */
-    --text-gradient: linear-gradient(90deg, #38bdf8 0%, #c084fc 100%);
-}
+ /* ==========================================================================
+           1. CORE DESIGN VARIABLES & RESET
+           ========================================================================== */
+        :root {
+            /* High-vibrancy multi-stop dark mode gradient background */
+            --bg-gradient: linear-gradient(145deg, #020617 0%, #0f172a 45%, #1e1b4b 75%, #2e1065 100%);
+            --card-bg: rgba(255, 255, 255, 0.02);
+            --card-border: rgba(255, 255, 255, 0.06);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent-cyan: #38bdf8;
+            --accent-purple: #c084fc;
+            --text-gradient: linear-gradient(90deg, #38bdf8 0%, #c084fc 100%);
+        }
 
-/* Enforce Smooth Scrolling behavior when links are clicked */
-html {
-    scroll-behavior: smooth;
-}
+        html {
+            scroll-behavior: smooth;
+        }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-body {
-    background: var(--bg-gradient);
-    background-attachment: fixed; /* Freezes gradient to layer depth as you scroll */
-    color: var(--text-primary);
-    min-height: 100vh;
-    line-height: 1.6;
-    padding: 0 1rem 4rem 1rem;
-}
+        body {
+            background: var(--bg-gradient);
+            background-attachment: fixed; /* Freezes gradient tracking as you scroll */
+            color: var(--text-primary);
+            min-height: 100vh;
+            line-height: 1.6;
+            padding: 0 1rem 4rem 1rem;
+        }
 
-.container {
-    max-width: 900px;
-    margin: 0 auto;
-}
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
 
-/* Fixed Navigation Bar */
-nav {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: rgba(2, 6, 23, 0.8);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--card-border);
-    padding: 1.2rem 0;
-    margin-bottom: 2rem;
-}
+        /* ==========================================================================
+           2. FIXED NAVIGATION BAR
+           ========================================================================== */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(2, 6, 23, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--card-border);
+            padding: 1.2rem 0;
+            margin-bottom: 2rem;
+        }
 
-.nav-container {
-    max-width: 900px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-.nav-logo {
-    font-weight: bold;
-    font-size: 1.2rem;
-    background: var(--text-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
+        .nav-logo {
+            font-weight: bold;
+            font-size: 1.2rem;
+            background: var(--text-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-.nav-links a {
-    color: var(--text-secondary);
-    text-decoration: none;
-    margin-left: 1.5rem;
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
 
-.nav-links a:hover {
-    color: var(--accent-cyan);
-}
+        .nav-links a:hover {
+            color: var(--accent-cyan);
+        }
 
-/* Glassmorphism Card Style */
-.card {
-    background: var(--card-bg);
-    border: 1px solid var(--card-border);
-    backdrop-filter: blur(16px);
-    border-radius: 16px;
-    padding: 2.5rem;
-    margin-bottom: 3rem;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
-}
+        /* ==========================================================================
+           3. GLASSMORPHISM CONTAINER STRUCTURE
+           ========================================================================== */
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+        }
 
-/* Intro Section layout with Profile Image */
-.hero-layout {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-}
+        h1 {
+            font-size: 2.5rem;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
 
-.hero-text {
-    flex: 2;
-}
+        h2 {
+            font-size: 1.6rem;
+            color: var(--text-primary);
+            border-bottom: 1px solid var(--card-border);
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
-.profile-img-container {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-}
+        p { 
+            color: var(--text-secondary); 
+            margin-bottom: 1rem; 
+        }
 
-.profile-img {
-    width: 160px;
-    height: 160px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid rgba(192, 132, 252, 0.4);
-    box-shadow: 0 0 30px rgba(192, 132, 252, 0.25);
-}
+        .gradient-text {
+            background: var(--text-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
 
-/* Gradient applied directly onto Text typography strings */
-.gradient-text {
-    background: var(--text-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    display: inline-block;
-}
+        /* ==========================================================================
+           4. HERO SECTION WITH IMAGE PROFILE
+           ========================================================================== */
+        .hero-layout {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
 
-h1 {
-    font-size: 2.5rem;
-    color: var(--text-primary);
-    margin-bottom: 1rem;
-}
+        .hero-text {
+            flex: 2;
+        }
 
-h2 {
-    font-size: 1.6rem;
-    color: var(--text-primary);
-    border-bottom: 1px solid var(--card-border);
-    padding-bottom: 0.75rem;
-    margin-bottom: 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
+        .profile-img-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
 
-p { color: var(--text-secondary); margin-bottom: 1rem; }
+        .profile-img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid rgba(192, 132, 252, 0.4);
+            box-shadow: 0 0 30px rgba(192, 132, 252, 0.25);
+        }
 
-.btn {
-    display: inline-block;
-    padding: 0.75rem 1.5rem;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 600;
-    margin-right: 1rem;
-    transition: 0.3s ease;
-    cursor: pointer;
-}
+        /* ==========================================================================
+           5. INTERACTIVE CTA BUTTONS
+           ========================================================================== */
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-right: 1rem;
+            transition: 0.3s ease;
+            cursor: pointer;
+        }
 
-/* Smooth glowing effect on hover for primary CTAs */
-.btn-primary { 
-    background: linear-gradient(90deg, #38bdf8 0%, #a855f7 100%); 
-    color: #020617; 
-    border: none; 
-}
-.btn-primary:hover { 
-    box-shadow: 0 0 20px rgba(168, 85, 247, 0.5);
-    transform: translateY(-1px);
-}
-.btn-secondary { border: 1px solid var(--text-secondary); color: var(--text-primary); background: transparent; }
-.btn-secondary:hover { background: rgba(255,255,255,0.05); border-color: var(--text-primary); }
+        .btn-primary { 
+            background: linear-gradient(90deg, #38bdf8 0%, #a855f7 100%); 
+            color: #020617; 
+            border: none; 
+        }
 
-.item-group { margin-bottom: 1.5rem; }
-.item-title { font-size: 1.2rem; font-weight: 600; color: var(--accent-cyan); }
-.item-subtitle { font-size: 1rem; color: var(--text-primary); font-style: italic; }
-.item-details { font-size: 0.95rem; color: var(--text-secondary); margin-top: 0.25rem; }
+        .btn-primary:hover { 
+            box-shadow: 0 0 20px rgba(168, 85, 247, 0.5);
+            transform: translateY(-1px);
+        }
 
-/* ==========================================================================
-   UPDATED/ADDED: CATEGORIZED PROJECTS SECTION
-   ========================================================================== */
-/* Wraps both layout categories in a side-by-side flex grid framework */
-.category-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2rem;
-    margin-top: 1.5rem;
-}
+        .btn-secondary { 
+            border: 1px solid var(--text-secondary); 
+            color: var(--text-primary); 
+            background: transparent; 
+        }
 
-.project-category {
-    display: flex;
-    flex-direction: column;
-}
+        .btn-secondary:hover { 
+            background: rgba(255, 255, 255, 0.05); 
+            border-color: var(--text-primary); 
+        }
 
-/* Modern clean borders separating project lists */
-.category-title {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: var(--text-primary);
-    margin-bottom: 1.25rem;
-    border-bottom: 1px solid var(--card-border);
-    padding-bottom: 0.5rem;
-}
+        /* ==========================================================================
+           6. EDUCATION & CERTIFICATION LAYOUTS
+           ========================================================================== */
+        .item-group { 
+            margin-bottom: 1.5rem; 
+        }
+        
+        .item-group:last-child {
+            margin-bottom: 0;
+        }
 
-/* Forces items in each category to stack smoothly inside their grid section */
-.project-grid-vertical {
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-}
+        .item-title { 
+            font-size: 1.2rem; 
+            font-weight: 600; 
+            color: var(--accent-cyan); 
+        }
 
-.project-card {
-    background: rgba(255, 255, 255, 0.01);
-    border: 1px solid var(--card-border);
-    border-radius: 12px;
-    padding: 1.5rem;
-    transition: transform 0.3s ease, border-color 0.3s ease;
-}
+        .item-subtitle { 
+            font-size: 1rem; 
+            color: var(--text-primary); 
+            font-style: italic; 
+        }
 
-.project-card:hover {
-    transform: translateY(-4px);
-    border-color: rgba(192, 132, 252, 0.3);
-}
+        .item-details { 
+            font-size: 0.95rem; 
+            color: var(--text-secondary); 
+            margin-top: 0.25rem; 
+        }
 
-.tags { 
-    display: flex; 
-    gap: 0.5rem; 
-    margin: 0.75rem 0; 
-    flex-wrap: wrap; 
-}
+        /* ==========================================================================
+           7. HORIZONTAL CATEGORIZED PROJECTS GRID
+           ========================================================================== */
+        .category-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+            margin-top: 1.5rem;
+        }
 
-/* Custom unique color styling tags matching specific project technologies */
-.tag { 
-    padding: 0.25rem 0.6rem; 
-    border-radius: 4px; 
-    font-size: 0.75rem; 
-    font-weight: 600;
-    text-transform: uppercase;
-}
-.tag-html { background: rgba(227, 79, 38, 0.12); color: #e34f26; border: 1px solid rgba(227, 79, 38, 0.2); }
-.tag-css { background: rgba(21, 114, 182, 0.12); color: #38bdf8; border: 1px solid rgba(21, 114, 182, 0.2); }
-.tag-js { background: rgba(247, 223, 30, 0.1); color: #f59e0b; border: 1px solid rgba(247, 223, 30, 0.2); }
-.tag-api { background: rgba(6, 182, 212, 0.12); color: #22d3ee; border: 1px solid rgba(6, 182, 212, 0.2); }
-.tag-storage { background: rgba(168, 85, 247, 0.12); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.2); }
+        .project-category {
+            display: flex;
+            flex-direction: column;
+        }
 
-.proj-links-container { display: flex; gap: 1rem; margin-top: 1rem;}
-.proj-link { color: var(--accent-cyan); text-decoration: none; font-size: 0.9rem; font-weight: bold; }
-.proj-link:hover { text-decoration: underline; }
+        .category-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1.25rem;
+            border-bottom: 1px solid var(--card-border);
+            padding-bottom: 0.5rem;
+        }
 
-/* ==========================================================================
-   FOOTER & MOBILE LAYOUT OPTIMIZATION
-   ========================================================================== */
-footer { text-align: center; margin-top: 5rem; color: var(--text-secondary); font-size: 0.9rem; border-top: 1px solid var(--card-border); padding-top: 2rem; }
+        /* Horizontal project alignment layout setup */
+        .project-grid-horizontal {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Forms two perfect horizontal columns */
+            gap: 1.5rem;
+        }
 
-@media (max-width: 768px) {
-    .category-container {
-        grid-template-columns: 1fr; /* Force columns to stack cleanly on mobile */
-    }
-}
+        .project-card {
+            background: rgba(255, 255, 255, 0.01);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Links anchor neatly to base line */
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
 
-@media (max-width: 600px) {
-    .hero-layout { flex-direction: column-reverse; text-align: center; }
-    .btn { margin: 0.5rem; }
-    .nav-links { display: none; }
-}
+        .project-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(192, 132, 252, 0.3);
+        }
+
+        /* Custom Project Tags Layout */
+        .tags { 
+            display: flex; 
+            gap: 0.5rem; 
+            margin: 0.75rem 0; 
+            flex-wrap: wrap; 
+        }
+
+        .tag { 
+            padding: 0.25rem 0.6rem; 
+            border-radius: 4px; 
+            font-size: 0.75rem; 
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        /* Dedicated Custom Color Schemes Per Stack Badge */
+        .tag-html { background: rgba(227, 79, 38, 0.12); color: #e34f26; border: 1px solid rgba(227, 79, 38, 0.2); }
+        .tag-css { background: rgba(21, 114, 182, 0.12); color: #38bdf8; border: 1px solid rgba(21, 114, 182, 0.2); }
+        .tag-js { background: rgba(247, 223, 30, 0.1); color: #f59e0b; border: 1px solid rgba(247, 223, 30, 0.2); }
+        .tag-api { background: rgba(6, 182, 212, 0.12); color: #22d3ee; border: 1px solid rgba(6, 182, 212, 0.2); }
+        .tag-storage { background: rgba(168, 85, 247, 0.12); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.2); }
+
+        .proj-links-container { 
+            display: flex; 
+            gap: 1rem; 
+            margin-top: 1rem;
+        }
+
+        .proj-link { 
+            color: var(--accent-cyan); 
+            text-decoration: none; 
+            font-size: 0.9rem; 
+            font-weight: bold; 
+        }
+
+        .proj-link:hover { 
+            text-decoration: underline; 
+        }
+
+        /* ==========================================================================
+           8. FOOTER & MEDIA QUERY LAYOUT OPTIMIZATIONS
+           ========================================================================== */
+        footer { 
+            text-align: center; 
+            margin-top: 5rem; 
+            color: var(--text-secondary); 
+            font-size: 0.9rem; 
+            border-top: 1px solid var(--card-border); 
+            padding-top: 2rem; 
+        }
+
+        @media (max-width: 768px) {
+            .project-grid-horizontal {
+                grid-template-columns: 1fr; /* Stacks cards in single line for tablet spaces */
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero-layout { 
+                flex-direction: column-reverse; 
+                text-align: center; 
+            }
+            .btn { 
+                margin: 0.5rem; 
+            }
+            .nav-links { 
+                display: none; 
+            }
+        }

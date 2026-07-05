@@ -39,7 +39,7 @@ function addProjectCard(title, desc, link, techStack) {
             "Language Translator", 
             "A client-side utility that translates text dynamically in the browser utilizing asynchronous Fetch APIs directly from the browser window.", 
             "https://github.com/Ekamnoor-Kaur/client-side-apps/tree/main/Sentence%20Translator",
-            ["JavaScript"]
+            ["JavaScript","API Integration"]
         );
 
         // Card 3
@@ -47,7 +47,7 @@ function addProjectCard(title, desc, link, techStack) {
             "Login System (Local Storage)", 
             "A fully client-side authentication engine that securely stores, validates, and manages user state using Web Storage APIs.", 
             "https://github.com/Ekamnoor-Kaur/client-side-apps/tree/main/Login%20System",
-            ["JavaScript"]
+            ["JavaScript","Local Storage"]
         );
 
         // Card 4

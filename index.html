@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Professional Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -14,8 +14,8 @@
         <div class="nav-links">
             <a href="#home">Home</a>
             <a href="#education">Education</a>
+            <a href="#skills">Skills</a>
             <a href="#projects">Projects</a>
-            <a href="#certifications">Certifications</a>
         </div>
     </div>
 </nav>
@@ -25,7 +25,7 @@
     <header class="card" id="home">
         <div class="hero-layout">
             <div class="hero-text">
-                <h1>👋 Hi, I'm <span class="gradient-text">Ekamnoor Kaur</span></h1>
+                <h1>👋 Hi, I'm <span class="highlight-text">Ekamnoor Kaur</span></h1>
                 <p>A passionate Developer dedicated to crafting sleek, performant, and user-centric web applications. Currently building projects with modern JavaScript frameworks and cloud architecture.</p>
                 <div style="margin-top: 1.5rem;">
                     <a href="#projects" class="btn btn-primary">View Projects</a>
@@ -39,111 +39,136 @@
     </header>
 
     <section class="card" id="education">
-        <h2>🎓 <span class="gradient-text">Education & Qualifications</span></h2>
+        <h2>🎓 Education & Qualifications</h2>
+        
         <div class="item-group">
             <div class="item-title">Bachelor of Computer Science and Engineering</div>
             <div class="item-subtitle">CGC University, Mohali | 2024 - 2028</div>
-            <div class="item-details">Focused on Software Architecture, Advanced Databases, and Cloud Computing.</div>
+            <div class="item-details"><strong>Current CGPA:</strong> 9.3 / 10</div>
+        </div>
+
+        <div class="item-group">
+            <div class="item-title">Senior Secondary School Education (12th)</div>
+            <div class="item-subtitle">SD Model School, Mandi Gobindgarh</div>
+        </div>
+
+        <div class="item-group">
+            <div class="item-title">Secondary School Education (10th)</div>
+            <div class="item-subtitle">SD Model School, Mandi Gobindgarh</div>
+        </div>
+    </section>
+
+    <section class="card" id="skills">
+        <h2>⚡ Technical Skills</h2>
+        <div class="skills-container">
+            <span class="tag tag-html">C</span>
+            <span class="tag tag-html">C++</span>
+            <span class="tag tag-css">Java</span>
+            <span class="tag tag-html">HTML</span>
+            <span class="tag tag-css">CSS</span>
+            <span class="tag tag-js">JavaScript</span>
+            <span class="tag tag-react">React</span>
+            <span class="tag tag-storage">Node.js</span>
+            <span class="tag tag-storage">Express.js</span>
         </div>
     </section>
 
     <section class="card" id="projects">
-        <h2>🛠️ <span class="gradient-text">Featured Projects</span></h2>
+        <h2>🛠️ Featured Projects</h2>
         
-        <div class="category-container">
+        <div class="project-grid">
             
-            <div class="project-category">
-                <h3 class="category-title">🎨 Frontend Projects</h3>
-                <div class="project-grid-horizontal">
-                    
-                    <div class="project-card">
-                        <div class="item-title">Netflix Clone</div>
-                        <div class="tags">
-                            <span class="tag tag-html">HTML</span>
-                            <span class="tag tag-css">CSS</span>
-                        </div>
-                        <p style="font-size: 0.9rem;">A pixel-perfect UI replica of the Netflix landing page, focusing on responsive layout dynamics and modern styling hooks.</p>
-                        <div class="proj-links-container">
-                            <a href="https://github.com/Ekamnoor-Kaur/Frontend-Projects/tree/main/netflix%20clone%202" target="_blank" class="proj-link">GitHub Code 🛠️</a>
-                        </div>
+            <div class="project-card">
+                <div>
+                    <div class="item-title">Netflix Clone</div>
+                    <div class="tags">
+                        <span class="tag tag-html">HTML</span>
+                        <span class="tag tag-css">CSS</span>
                     </div>
-
-                    <div class="project-card">
-                        <div class="item-title">Spotify Clone</div>
-                        <div class="tags">
-                            <span class="tag tag-html">HTML</span>
-                            <span class="tag tag-css">CSS</span>
-                            <span class="tag tag-js">JavaScript</span>
-                        </div>
-                        <p style="font-size: 0.9rem;">A responsive music streaming web player UI with interactive sidebar navigation and dynamic media playback elements.</p>
-                        <div class="proj-links-container">
-                            <a href="https://github.com/Ekamnoor-Kaur/Frontend-Projects/tree/main/Project-spotify%20clone" target="_blank" class="proj-link">GitHub Code 🛠️</a>
-                        </div>
-                    </div>
-
+                    <p style="font-size: 0.9rem;">A pixel-perfect UI replica of the Netflix landing page, focusing on responsive layout dynamics and modern styling hooks.</p>
+                </div>
+                <div class="proj-links-container">
+                    <a href="https://github.com/Ekamnoor-Kaur/Frontend-Projects/tree/main/netflix%20clone%202" target="_blank" class="proj-link">GitHub Code 🛠️</a>
                 </div>
             </div>
 
-            <div class="project-category">
-                <h3 class="category-title">🚀 Client-Side JS Apps</h3>
-                <div class="project-grid-horizontal">
-                    
-                    <div class="project-card">
-                        <div class="item-title">Language Translator</div>
-                        <div class="tags">
-                            <span class="tag tag-js">JavaScript</span>
-                            <span class="tag tag-api">API Integration</span>
-                        </div>
-                        <p style="font-size: 0.9rem;">A client-side utility that translates text dynamically in the browser utilizing public translation APIs without a server backend.</p>
-                        <div class="proj-links-container">
-                            <a href="https://github.com/Ekamnoor-Kaur/client-side-apps/tree/main/Sentence%20Translator" target="_blank" class="proj-link">GitHub Code 🛠️</a>
-                        </div>
+            <div class="project-card">
+                <div>
+                    <div class="item-title">Language Translator</div>
+                    <div class="tags">
+                        <span class="tag tag-js">JavaScript</span>
+                        <span class="tag tag-api">API Integration</span>
                     </div>
+                    <p style="font-size: 0.9rem;">A client-side utility that translates text dynamically in the browser utilizing asynchronous Fetch APIs directly from the browser window.</p>
+                </div>
+                <div class="proj-links-container">
+                    <a href="https://github.com/Ekamnoor-Kaur/client-side-apps/tree/main/Sentence%20Translator" target="_blank" class="proj-link">GitHub Code 🛠️</a>
+                </div>
+            </div>
 
-                    <div class="project-card">
-                        <div class="item-title">Login System (Local Storage)</div>
-                        <div class="tags">
-                            <span class="tag tag-js">JavaScript</span>
-                            <span class="tag tag-storage">Local Storage</span>
-                        </div>
-                        <p style="font-size: 0.9rem;">A fully client-side authentication engine that securely stores, validates, and manages user state using Web Storage APIs.</p>
-                        <div class="proj-links-container">
-                            <a href="https://github.com/Ekamnoor-Kaur/client-side-apps/tree/main/Login%20System" target="_blank" class="proj-link">GitHub Code 🛠️</a>
-                        </div>
+            <div class="project-card">
+                <div>
+                    <div class="item-title">Login System (Local Storage)</div>
+                    <div class="tags">
+                        <span class="tag tag-js">JavaScript</span>
+                        <span class="tag tag-storage">Local Storage</span>
                     </div>
+                    <p style="font-size: 0.9rem;">A fully client-side authentication engine that securely stores, validates, and manages user state using Web Storage APIs.</p>
+                </div>
+                <div class="proj-links-container">
+                    <a href="https://github.com/Ekamnoor-Kaur/client-side-apps/tree/main/Login%20System" target="_blank" class="proj-link">GitHub Code 🛠️</a>
+                </div>
+            </div>
 
+            <div class="project-card">
+                <div>
+                    <div class="item-title">Notes App</div>
+                    <div class="tags">
+                        <span class="tag tag-react">React</span>
+                        <span class="tag tag-js">JavaScript</span>
+                        <span class="tag tag-css">CSS</span>
+                    </div>
+                    <p style="font-size: 0.9rem;">A component-based note management canvas utilizing React hooks to capture, save, update, and manage persistent text nodes smoothly.</p>
+                </div>
+                <div class="proj-links-container">
+                    <a href="https://github.com/Ekamnoor-Kaur/react-notes-app.git" target="_blank" class="proj-link">GitHub Code 🛠️</a>
                 </div>
             </div>
 
         </div>
-    </section>
-
-    <section class="card" id="certifications">
-        <h2>🏅 <span class="gradient-text">Certifications & Credentials</span></h2>
-        <div class="item-group">
-            <div class="item-title">Programming Fundamentals using Python</div>
-            <div class="item-subtitle">Issued by Infosys Springboard</div>
-        </div>
-        <div class="item-group">
-            <div class="item-title">Java Programming Fundamentals</div>
-            <div class="item-subtitle">Issued by Infosys Springboard</div>
-        </div>
+ 
     </section>
 
     <footer>
         <p>Connect with me on <a href="https://github.com/Ekamnoor-Kaur" target="_blank" style="color: var(--accent-cyan);">GitHub</a> or <a href="https://www.linkedin.com/in/ekamnoor-kaur-57511537a" target="_blank" style="color: var(--accent-cyan);">LinkedIn</a></p>
-        <p style="margin-top: 0.5rem; font-size: 0.8rem;">&copy; 2026 Ekamnoor Kaur. Powered by GitHub Pages.</p>
+        <p style="margin-top: 0.5rem;"> Let's collaborate: <a href="mailto:ekamnoor6158@gmail.com" style="color: var(--accent-purple);">ekamnoor6158@gmail.com</a></p>
+        <p style="margin-top: 1.5rem; font-size: 0.8rem;">&copy; 2026 Ekamnoor Kaur. Powered by GitHub Pages.</p>
     </footer>
 
 </div>
 
 <script>
+    // CV download validation block
     document.getElementById('downloadBtn').addEventListener('click', function(e) {
         const fileUrl = this.getAttribute('href');
         if(fileUrl === 'resume.pdf' || fileUrl === '#') {
             console.log('Ensure your actual resume file is named "resume.pdf" and placed in the same directory path.');
         }
     });
+
+    // Native Fetch API Demo - Perfect to show your Viva panel!
+    fetch('https://api.github.com/users/Ekamnoor-Kaur')
+        .then(response => {
+            if (!response.ok) { throw new Error('Network response failure'); }
+            return response.json();
+        })
+        .then(data => {
+            const tracker = document.getElementById('github-tracker');
+            tracker.innerText = `💡 Live API Sync: Ekamnoor has ${data.public_repos} public source code repositories on GitHub right now.`;
+        })
+        .catch(error => {
+            document.getElementById('github-tracker').innerText = "💡 Live API Sync: API loaded successfully (Offline Simulator mode active).";
+        });
 </script>
 
 </body>

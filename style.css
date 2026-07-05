@@ -191,7 +191,6 @@
      margin-top: 0.25rem;
  }
 
- /* 4-Project Flat Grid Configuration */
  .project-grid {
      display: grid;
      grid-template-columns: repeat(2, 1fr);
@@ -230,6 +229,7 @@
      text-transform: uppercase;
  }
 
+ /* Color configurations based on stack labels */
  .tag-html {
      background: rgba(227, 79, 38, 0.12);
      color: #e34f26;
@@ -242,16 +242,10 @@
      border: 1px solid rgba(21, 114, 182, 0.2);
  }
 
- .tag-js {
+ .tag-javascript {
      background: rgba(247, 223, 30, 0.1);
      color: #f59e0b;
      border: 1px solid rgba(247, 223, 30, 0.2);
- }
-
- .tag-api {
-     background: rgba(6, 182, 212, 0.12);
-     color: #22d3ee;
-     border: 1px solid rgba(6, 182, 212, 0.2);
  }
 
  .tag-react {
@@ -260,8 +254,8 @@
      border: 1px solid rgba(0, 216, 255, 0.2);
  }
 
- .tag-storage {
-     background: rgba(168, 85, 247, 0.12);
+ .tag-general {
+     background: rgba(168, 85, 247, 0.1);
      color: #c084fc;
      border: 1px solid rgba(168, 85, 247, 0.2);
  }
@@ -272,29 +266,27 @@
      margin-top: 1rem;
  }
 
- .proj-link {
-     color: var(--accent-cyan);
-     text-decoration: none;
-     font-size: 0.9rem;
+ .nav-btn-link {
+     background: linear-gradient(90deg, #38bdf8 0%, #a855f7 100%);
+     color: #020617;
+     border: none;
+     padding: 8px 16px;
+     border-radius: 6px;
+     font-size: 0.85rem;
      font-weight: bold;
+     cursor: pointer;
+     transition: 0.2s ease;
+     width: fit-content;
  }
 
- .proj-link:hover {
-     text-decoration: underline;
+ .nav-btn-link:hover {
+     box-shadow: 0 0 15px rgba(168, 85, 247, 0.4);
  }
 
- /* Skills Layout */
  .skills-container {
      display: flex;
      flex-wrap: wrap;
      gap: 0.75rem;
- }
-
- .api-status {
-     font-size: 0.85rem;
-     color: var(--accent-purple);
-     margin-top: 1rem;
-     font-style: italic;
  }
 
  footer {
@@ -304,11 +296,6 @@
      font-size: 0.9rem;
      border-top: 1px solid var(--card-border);
      padding-top: 2rem;
- }
-
- footer a {
-     text-decoration: none;
-     font-weight: bold;
  }
 
  @media (max-width: 768px) {
@@ -321,10 +308,6 @@
      .hero-layout {
          flex-direction: column-reverse;
          text-align: center;
-     }
-
-     .btn {
-         margin: 0.5rem;
      }
 
      .nav-links {
